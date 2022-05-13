@@ -27,9 +27,10 @@ void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<flo
 	std::cout << "test\n";
 	std::cout << "rows: "<< C.rows() << std::endl;
 	std::cout << "cols: "<< C.cols() << std::endl;
-	std::cout << "const A: "<< A.value() << std::endl;
+	//std::cout << "const A: "<< A.value() << std::endl;
 	
 	
+
 	//std::cout << "columms: "<< A.cols(0,0) << std::endl;
 	
 
