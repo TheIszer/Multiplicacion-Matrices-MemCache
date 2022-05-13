@@ -58,7 +58,7 @@ void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 		for(size_t j=0; j < B.cols(); j++){
 			for(size_t k=0; k < A.cols(); k++){
 				//c[i][j] += a[i][k] * b[k][j];
-				C.value(i,j) += A.value(i,k)*B.value(k,j)
+				C.value(i,j) += A.value(i,k)*B.value(k,j);
 			}			
 		}
 	}
