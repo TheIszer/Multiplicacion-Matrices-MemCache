@@ -64,15 +64,13 @@ int main(int argc, char** argv)
 	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
 	
 	//Imprimir la matriz m1
-	std::cout << "MATRIZ m1\n";
+	/*std::cout << "MATRIZ m1\n";
 	for(size_t i=0; i< m1.rows(); i++){
 		for(size_t j=0; j< m1.cols(); j++){
 			std::cout << m1(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
-	
-	std::cout << "FIN del TEST\n";
+	}*/
 	
 	// Ejemplo de creación de matrix vacía
 	MultMatrix mm;
