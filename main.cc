@@ -1,9 +1,9 @@
-#include "./include/global.hh"
+#include <global.hh>
 
-#include "./include/Timer.hpp"
-#include "./include/Matrix.hpp"
-
-#include "MultMatrix.hh"
+#include <Timer.hpp>
+#include <Matrix.hpp>
+ 
+#include <MultMatrix.hh>
 
 /////////////////////////////////////////////////////////////////////////////////
 //  Identificación del alumno
