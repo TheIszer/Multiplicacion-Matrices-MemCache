@@ -29,6 +29,9 @@ int main(int argc, char** argv)
 {
 	std::cout << "FLAG1\n";
 
+	std::cout << "argv[0]" << argv[0];
+	std::cout << "argv[1]" << argv[1];
+
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
 	
