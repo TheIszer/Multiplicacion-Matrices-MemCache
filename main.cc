@@ -78,6 +78,7 @@ int main(int argc, char** argv)
 	
 	//Ejemplo de llamada al método del algoritmo ijk
 	mm.DOijk(m1, m1, C);
+	mm.DOkij(m1, m1, C);
 	
 	
 	return(EXIT_SUCCESS);
