@@ -71,6 +71,7 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}
 	
+	std::cout << "FIN del TEST\n";
 	
 	// Ejemplo de creación de matrix vacía
 	//MultMatrix mm;
