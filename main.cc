@@ -84,32 +84,32 @@ int main(int argc, char** argv)
 	timer2.start();
 	mm.DOijk(m1, m1, C);
 	timer2.stop();
-	std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns"  << ":time_kij #1\n";
+	//std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns"  << ":time_kij #1\n";
 	
 	//Imprimir la matriz C
-	std::cout << "MATRIZ C\n";
+	/*std::cout << "MATRIZ C\n";
 	for(size_t i=0; i< C.rows(); i++){
 		for(size_t j=0; j< C.cols(); j++){
 			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 	timer3.start();
 	mm.DOkij(m1, m1, C2);
 	timer3.stop();
-	std::cout << "rowsxcols:time_ijk:time_kij=" << timer3.elapsed() << " ns"  << " #1\n\n";
+	//std::cout << "rowsxcols:time_ijk:time_kij=" << timer3.elapsed() << " ns"  << " #1\n\n";
 
 	//Imprimir la matriz C
-	std::cout << "MATRIZ C\n";
+	/*std::cout << "MATRIZ C2\n";
 	for(size_t i=0; i< C2.rows(); i++){
 		for(size_t j=0; j< C2.cols(); j++){
 			std::cout << C2(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
-	std::cout << "rowsxcols:" << timer2.elapsed() << " ns:" << timer3.elapsed() << " #1\n";
+	std::cout << "rowsxcols:" << timer2.elapsed() << "ns:" << timer3.elapsed() << "ns #1\n";
 
 	return(EXIT_SUCCESS);
 }
