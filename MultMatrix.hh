@@ -13,7 +13,9 @@ class MultMatrix
 {
 private:
 	//Todas las variables privadas deben comenzar con _
-
+	Matrix<float> _matrizA; 
+	Matrix<float> _matrizB; 
+	Matrix<float> _matrizC; 
 
 public:
 	MultMatrix(){}
