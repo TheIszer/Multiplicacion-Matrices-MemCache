@@ -15,11 +15,14 @@
 
 
 
-/*void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
+void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
 {
 	//Completar
-	int i = C.rows();
-	int j = C.cols();
+
+	//DO ijk
+	//int i = A.rows();
+	//int k = A.cols(); //Tambien B.rows()
+	//int j = B.cols();	
 
 	std::cout << "test\n";
 	std::cout << "rows: "<< C.rows() << std::endl;
@@ -30,23 +33,23 @@
 	//std::cout << "columms: "<< A.cols(0,0) << std::endl;
 	
 
-	for(size_t i=0; i < filas(a); i++){
+	/* for(size_t i=0; i < filas(a); i++){
 		for(size_t j=0; j < columnas(b); j++){
 			for(size_t k=0; k < columnas(a); k++){
 			c[i][j] += a[i][k] * b[k][j];
 			}			
 		}
-		}
-}*/
+	} */
+}
 
 
-/*void MultMatrix::DOkij(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
+void MultMatrix::DOkij(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
 {
 	//Completar
-}*/
+}
 
 //Sin const
-void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
+/*void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 {
 	//Completar
 	//DO ijk
@@ -62,10 +65,10 @@ void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 			}			
 		}
 	}
-}
+}*/
 
 //Sin const
-void MultMatrix::DOkij(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
+/*void MultMatrix::DOkij(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 {
 	//Completar
 
@@ -79,4 +82,4 @@ void MultMatrix::DOkij(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 				}			
 		}
 	}
-}
+}*/
