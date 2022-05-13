@@ -6,8 +6,8 @@
 //  Nombre Completo:
 /////////////////////////////////////////////////////////////////////////////////
 
-#include "./include/global.hh"
-#include "./include/Matrix.hpp"
+#include <global.hh>
+#include <Matrix.hpp>
 
 class MultMatrix
 {

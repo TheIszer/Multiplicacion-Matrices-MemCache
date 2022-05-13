@@ -18,8 +18,12 @@
 void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
 {
 	//Completar
+
+	Matrix<float> D(10, 10);
+
 	std::cout << "Hola piter\n";
-	std::cout << "rows: "<< this.A.rows() << std::endl;
+	//int a = ***A.rows();
+	//std::cout << "rows: "<< *this.A.rows() << std::endl;
 	//std::cout << "columms: "<< A.cols() << std::endl;
 	
 
