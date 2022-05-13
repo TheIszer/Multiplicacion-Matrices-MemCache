@@ -29,6 +29,7 @@ int main(int argc, char** argv)
 {
 	Timer<std::chrono::nanoseconds> timer1;
 	Timer<std::chrono::nanoseconds> timer2;
+	Timer<std::chrono::nanoseconds> timer3;
 	std::string fileMatrixA;
 	
 	///////////////////////////////////////
@@ -76,13 +77,14 @@ int main(int argc, char** argv)
 	// Ejemplo de creación de matrix vacía
 	MultMatrix mm;
 	Matrix<float> C(m1.rows(), m1.cols());
+	Matrix<float> C2(m1.rows(), m1.cols());
 	
 	//Ejemplo de llamada al método del algoritmo ijk
 
 	timer2.start();
 	mm.DOijk(m1, m1, C);
 	timer2.stop();
-	std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns\n"  << ":time_kij #1";
+	std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns"  << ":time_kij #1\n";
 	
 	//Imprimir la matriz C
 	std::cout << "MATRIZ C\n";
@@ -93,9 +95,22 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}
 
-	mm.DOkij(m1, m1, C);
-	
-	
+	timer3.start();
+	mm.DOkij(m1, m1, C2);
+	timer3.stop();
+	std::cout << "rowsxcols:time_ijk:time_kij=" << timer3.elapsed() << " ns"  << " #1\n\n";
+
+	//Imprimir la matriz C
+	std::cout << "MATRIZ C\n";
+	for(size_t i=0; i< C2.rows(); i++){
+		for(size_t j=0; j< C2.cols(); j++){
+			std::cout << C2(i,j) << "\t";
+		}
+		std::cout << std::endl;
+	}
+
+	std::cout << "rowsxcols:" << timer2.elapsed() << " ns:" << timer3.elapsed() << " #1\n";
+
 	return(EXIT_SUCCESS);
 }
 
