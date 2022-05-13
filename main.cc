@@ -13,7 +13,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 //   Usage:
-//           ./matrixMult --matrix matrix_file
+//           ./mult --A matrix_file
 //
 //   Description:
 //           -->Completar la descripción
@@ -22,16 +22,12 @@
 
 void uso(std::string pname)
 {
-	std::cerr << "Uso: " << pname << " --matrix MATRIX_FILE" << std::endl;
+	std::cerr << "Uso: " << pname << " --A MATRIX_FILE" << std::endl;
 }
 
 int main(int argc, char** argv)
 {
 	std::cout << "FLAG1\n";
-
-	std::cout << "argc= " << argc << "\n";
-	std::cout << "argv[1]= " << argv[1] << "\n";
-
 
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
@@ -46,7 +42,7 @@ int main(int argc, char** argv)
 	std::string mystr;
 	for (size_t i=0; i < argc; i++) {
 		mystr=argv[i];
-		if (mystr == "--matrix") {
+		if (mystr == "--A") {
 			fileMatrixA = argv[i+1];
 		}
 	}
