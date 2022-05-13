@@ -29,8 +29,13 @@ int main(int argc, char** argv)
 {
 	std::cout << "FLAG1\n";
 
-	std::cout << "argv[0]" << argv[0] << "\n";
-	std::cout << "argv[1]" << argv[1] << "\n";
+	std::cout << "argv[0]= " << argv[0] << "\n";
+	std::cout << "argv[1]= " << argv[1] << "\n";
+	std::cout << "argv[2]= " << argv[2] << "\n";
+	std::cout << "argv[3]= " << argv[3] << "\n";
+	std::cout << "argv[4]= " << argv[4] << "\n";
+	std::cout << "argv[5]= " << argv[5] << "\n";
+	std::cout << "argv[6]= " << argv[6] << "\n";
 
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
