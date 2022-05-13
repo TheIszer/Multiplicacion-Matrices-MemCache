@@ -54,12 +54,15 @@ void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 	//int k = A.cols(); //Tambien B.rows()
 	//int j = B.cols();	
 
-	for(size_t i=0; i < A.rows(); i++){
+	std::cout << "const A(0,0): "<< A.value(0,0) << std::endl;
+	std::cout << "const B(1,1): "<< B.value(0,0) << std::endl;
+
+	/*for(size_t i=0; i < A.rows(); i++){
 		for(size_t j=0; j < B.cols(); j++){
 			for(size_t k=0; k < A.cols(); k++){
 				//c[i][j] += a[i][k] * b[k][j];
 				C.value(i,j) += A.value(i,k)*B.value(k,j);
 			}			
 		}
-	}
+	}*/
 }
