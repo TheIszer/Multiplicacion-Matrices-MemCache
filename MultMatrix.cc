@@ -19,8 +19,8 @@ void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<flo
 {
 	//Completar
 	std::cout << "Hola piter\n";
-	std::cout << "rows: "<< &A.rows() << std::endl;
-	std::cout << "columms: "<< A.cols() << std::endl;
+	std::cout << "rows: "<< this.A.rows() << std::endl;
+	//std::cout << "columms: "<< A.cols() << std::endl;
 	
 
 	/*for(size_t i=0; i < filas(a); i++){
