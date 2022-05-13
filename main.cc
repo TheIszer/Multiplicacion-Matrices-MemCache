@@ -27,8 +27,6 @@ void uso(std::string pname)
 
 int main(int argc, char** argv)
 {
-	std::cout << "FLAG1\n";
-
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
 	
@@ -38,7 +36,6 @@ int main(int argc, char** argv)
 		uso(argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	std::cout << "FLAG2\n";
 	std::string mystr;
 	for (size_t i=0; i < argc; i++) {
 		mystr=argv[i];
@@ -51,7 +48,6 @@ int main(int argc, char** argv)
 		uso(argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	std::cout << "FLAG3\n";
 	Matrix<float> m1(fileMatrixA, " ");
 	
 	timer1.start();
@@ -65,6 +61,8 @@ int main(int argc, char** argv)
 	
 	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
 	
+	//Imprimir la matriz m1
+	std::cout << "MATRIZ m1\n";
 	for(size_t i=0; i< m1.rows(); i++){
 		for(size_t j=0; j< m1.cols(); j++){
 			std::cout << m1(i,j) << "\t";
@@ -75,8 +73,8 @@ int main(int argc, char** argv)
 	std::cout << "FIN del TEST\n";
 	
 	// Ejemplo de creación de matrix vacía
-	//MultMatrix mm;
-	//Matrix<float> C(m1.rows(), m1.cols());
+	MultMatrix mm;
+	Matrix<float> C(m1.rows(), m1.cols());
 	
 	//Ejemplo de llamada al método del algoritmo ijk
 	//mm.DOijk(m1, m1, C);
