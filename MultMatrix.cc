@@ -20,7 +20,7 @@ void MultMatrix::DOijk(const Matrix<float>& A,const Matrix<float>& B, Matrix<flo
 	//Completar
 
 	std::cout << "Hola piter\n";
-	std::cout << "rows: "<< *A.rows() << std::endl;
+	std::cout << "rows: "<< A.rows() << std::endl;
 	
 	
 	//std::cout << "columms: "<< A.cols() << std::endl;
