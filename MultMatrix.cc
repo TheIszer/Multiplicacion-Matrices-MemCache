@@ -27,7 +27,7 @@
 	std::cout << "const A: "<< A.value() << std::endl;
 	
 	
-	//std::cout << "columms: "<< A.cols() << std::endl;
+	//std::cout << "columms: "<< A.cols(0,0) << std::endl;
 	
 
 	for(size_t i=0; i < filas(a); i++){
@@ -53,9 +53,6 @@ void MultMatrix::DOijk(Matrix<float>& A, Matrix<float>& B, Matrix<float>& C)
 	//int i = A.rows();
 	//int k = A.cols(); //Tambien B.rows()
 	//int j = B.cols();	
-
-	std::cout << "const A(0,0): "<< A.value(0,0) << std::endl;
-	std::cout << "const B(1,1): "<< B.value(1,1) << std::endl;
 
 	for(size_t i=0; i < A.rows(); i++){
 		for(size_t j=0; j < B.cols(); j++){

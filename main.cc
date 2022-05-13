@@ -28,6 +28,7 @@ void uso(std::string pname)
 int main(int argc, char** argv)
 {
 	Timer<std::chrono::nanoseconds> timer1;
+	Timer<std::chrono::nanoseconds> timer2;
 	std::string fileMatrixA;
 	
 	///////////////////////////////////////
@@ -77,7 +78,21 @@ int main(int argc, char** argv)
 	Matrix<float> C(m1.rows(), m1.cols());
 	
 	//Ejemplo de llamada al método del algoritmo ijk
+
+	timer2.start();
 	mm.DOijk(m1, m1, C);
+	timer2.stop();
+	std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns\n"  << ":time_kij #1";
+	
+	//Imprimir la matriz C
+	std::cout << "MATRIZ C\n";
+	for(size_t i=0; i< C.rows(); i++){
+		for(size_t j=0; j< C.cols(); j++){
+			std::cout << C(i,j) << "\t";
+		}
+		std::cout << std::endl;
+	}
+
 	mm.DOkij(m1, m1, C);
 	
 	
