@@ -27,7 +27,7 @@ void uso(std::string pname)
 
 int main(int argc, char** argv)
 {
-	std::cout << "TEST\n";
+	std::cout << "FLAG1\n";
 
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
@@ -38,6 +38,7 @@ int main(int argc, char** argv)
 		uso(argv[0]);
 		exit(EXIT_FAILURE);
 	}
+	std::cout << "FLAG2\n";
 	std::string mystr;
 	for (size_t i=0; i < argc; i++) {
 		mystr=argv[i];
@@ -50,7 +51,7 @@ int main(int argc, char** argv)
 		uso(argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	
+	std::cout << "FLAG3\n";
 	Matrix<float> m1(fileMatrixA, " ");
 	
 	timer1.start();
