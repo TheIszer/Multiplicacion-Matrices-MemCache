@@ -27,6 +27,7 @@ void uso(std::string pname)
 
 int main(int argc, char** argv)
 {
+	std::cout << "TEST\n";
 
 	Timer<std::chrono::nanoseconds> timer1;
 	std::string fileMatrixA;
