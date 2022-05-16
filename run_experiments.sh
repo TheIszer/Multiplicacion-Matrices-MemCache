@@ -24,4 +24,9 @@ echo "Variables $ruta_de_datos y $repeticiones"
 
 ./mult --A $ruta_de_datos
 
+for i in $repeticiones
+do 
+    echo "a"
+done
+
 echo "FIN"
