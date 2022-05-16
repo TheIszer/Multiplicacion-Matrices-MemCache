@@ -110,7 +110,7 @@ int main(int argc, char** argv)
 	}*/
 
 	//rowsxcols:time_ijk:time_kij #<-- nros dependen de la ejecución
-	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << "#\n";
+	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << "\n";
 
 	return(EXIT_SUCCESS);
 }

@@ -19,7 +19,7 @@
 ruta_de_datos=$2
 repeticiones=$4
 
-echo "Archivo: $ruta_de_datos Repeticiones: $repeticiones"
+echo "#rowsxcols:time_ijk:time_kij"
 
 #./mult --A $ruta_de_datos
 
@@ -29,5 +29,3 @@ do
     ((count=count-1))
     ./mult --A $ruta_de_datos
 done
-
-echo "FIN"
