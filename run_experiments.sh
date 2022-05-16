@@ -16,11 +16,12 @@
 #/////////////////////////////////////////////////////////////////////////////////
 
 #chmod +x run_experiments.sh
+ruta_de_datos=$2
+repeticiones=$4
+
 echo "Archivo: $2 Repeticiones: $4"
+echo "Variables $ruta_de_datos y $repeticiones"
 
-ruta_al_archivo_de_datos = $2
-repeticiones = $4
-
-./mult --A $ruta_al_archivo_de_datos
+./mult --A $ruta_de_datos
 
 echo "FIN"
