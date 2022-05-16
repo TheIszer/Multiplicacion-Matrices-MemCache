@@ -16,7 +16,17 @@
 //           ./mult --A matrix_file
 //
 //   Description:
-//           -->Completar la descripción
+//   		Codigo fuente que mide el tiempo de ejecución en nanoSegundos de  
+//			dos métodos de multiplicación de matrices (Métdodo ijk vs kij)
+//
+//		Input:
+//			matrix_file.txt en donde:
+//				Los datos deberan estar separados por un espacio " " y
+// 				La primera linea debe ser el tamaño de la matriz Ej:6 6
+//
+//		Output:
+//			rowsxcols:time_ijk:time_kij		(en nanosegundos)
+//				Ejemplo de salida: 6x6:5009:3747
 //
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -27,13 +37,15 @@ void uso(std::string pname)
 
 int main(int argc, char** argv)
 {
-	Timer<std::chrono::nanoseconds> timer1;	//Timer para la carga de la matriz
-	Timer<std::chrono::nanoseconds> timer2;	//Timer para el metodo ijk
-	Timer<std::chrono::nanoseconds> timer3;	//Timer para el metodo kij
+	//Timers en nanosegundos
+	Timer<std::chrono::nanoseconds> timer1;	//para la carga de la matriz
+	Timer<std::chrono::nanoseconds> timer2;	//para el metodo ijk
+	Timer<std::chrono::nanoseconds> timer3;	//para el metodo kij
 	std::string fileMatrixA;
 	
 	///////////////////////////////////////
 	//  Read command-line parameters
+	///////////////////////////////////////
 	if(argc != 3){
 		uso(argv[0]);
 		exit(EXIT_FAILURE);
@@ -72,6 +84,7 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}*/
 	
+
 	///////////////////////////////////////
 	//  Multiplicacion de matrices
 	///////////////////////////////////////
