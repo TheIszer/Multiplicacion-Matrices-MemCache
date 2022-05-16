@@ -27,9 +27,9 @@ void uso(std::string pname)
 
 int main(int argc, char** argv)
 {
-	Timer<std::chrono::nanoseconds> timer1;
-	Timer<std::chrono::nanoseconds> timer2;
-	Timer<std::chrono::nanoseconds> timer3;
+	Timer<std::chrono::nanoseconds> timer1;	//Timer para la carga de la matriz
+	Timer<std::chrono::nanoseconds> timer2;	//Timer para el metodo ijk
+	Timer<std::chrono::nanoseconds> timer3;	//Timer para el metodo kij
 	std::string fileMatrixA;
 	
 	///////////////////////////////////////
@@ -61,9 +61,9 @@ int main(int argc, char** argv)
 	}
 	timer1.stop();
 	
-	std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
+	//std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
 	
-	//Imprimir la matriz m1
+	// Imprimir la matriz m1
 	/*std::cout << "MATRIZ m1\n";
 	for(size_t i=0; i< m1.rows(); i++){
 		for(size_t j=0; j< m1.cols(); j++){
@@ -72,17 +72,19 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}*/
 	
-	// Ejemplo de creación de matrix vacía
+	///////////////////////////////////////
+	//  Multiplicacion de matrices
+	///////////////////////////////////////
+
+	//Creación de matrix vacía
 	MultMatrix mm;
 	Matrix<float> C(m1.rows(), m1.cols());
 	Matrix<float> C2(m1.rows(), m1.cols());
 	
-	//Ejemplo de llamada al método del algoritmo ijk
-
+	//Llamada al método del algoritmo ijk
 	timer2.start();
 	mm.DOijk(m1, m1, C);
 	timer2.stop();
-	//std::cout << "rowsxcols:time_ijk=" << timer2.elapsed() << " ns"  << ":time_kij #1\n";
 	
 	//Imprimir la matriz C
 	/*std::cout << "MATRIZ C\n";
@@ -93,10 +95,10 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}*/
 
+	//Llamada al método del algoritmo kij
 	timer3.start();
 	mm.DOkij(m1, m1, C2);
 	timer3.stop();
-	//std::cout << "rowsxcols:time_ijk:time_kij=" << timer3.elapsed() << " ns"  << " #1\n\n";
 
 	//Imprimir la matriz C
 	/*std::cout << "MATRIZ C2\n";
@@ -108,7 +110,7 @@ int main(int argc, char** argv)
 	}*/
 
 	//rowsxcols:time_ijk:time_kij #<-- nros dependen de la ejecución
-	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << " #\n";
+	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << "#\n";
 
 	return(EXIT_SUCCESS);
 }
