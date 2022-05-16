@@ -24,7 +24,10 @@ echo "Variables $ruta_de_datos y $repeticiones"
 
 ./mult --A $ruta_de_datos
 
-for i in (($repeticiones))
+((n=repeticiones+1))
+echo "repeticiones++ $n"
+
+for i in ((repeticiones))
 do 
     echo "a"
 done
