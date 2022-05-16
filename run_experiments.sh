@@ -17,3 +17,10 @@
 
 #chmod +x run_experiments.sh
 echo "Archivo: $2 Repeticiones: $4"
+
+ruta_al_archivo_de_datos = $2
+repeticiones = $4
+
+./mult --A ruta_al_archivo_de_datos
+
+echo "FIN"
