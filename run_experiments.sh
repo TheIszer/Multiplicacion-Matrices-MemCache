@@ -19,17 +19,15 @@
 ruta_de_datos=$2
 repeticiones=$4
 
-echo "Archivo: $2 Repeticiones: $4"
-echo "Variables $ruta_de_datos y $repeticiones"
+echo "Archivo: $ruta_de_datos Repeticiones: $repeticiones"
 
-./mult --A $ruta_de_datos
+#./mult --A $ruta_de_datos
 
-((n=repeticiones+1))
-echo "repeticiones++ $n"
-
-for i in ((repeticiones))
-do 
-    echo "a"
+((count=repeticiones))
+while [ $count -gt 0 ]
+do
+    ((count=count-1))
+    ./mult --A $ruta_de_datos
 done
 
 echo "FIN"
