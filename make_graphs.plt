@@ -23,7 +23,7 @@ FILE_600x600="experimentos/experimento_600x600_100.txt"
 #------------- 
 	 
 #------------- 5x9 -------------#       
-set title "Execution time, mean and Standard deviation Graph"
+set title "Execution time, mean and Standard deviation Graph (5x9 Matrix)"
 set ylabel "Time (ns)"
 set xlabel "Num de Experimento"
 set output "Graph_5x9.png"
@@ -52,7 +52,7 @@ plot FILE_5x9 using 0:($2) title "5x9 ijk experiments"  with lines lt 30 lw 1 dt
 
 
 #------------- 6x5 -------------#       
-set title "Execution time, mean and Standard deviation Graph"
+set title "Execution time, mean and Standard deviation Graph (6x5 Matrix)"
 set ylabel "Time (ns)"
 set xlabel "Num de Experimento"
 set output "Graph_6x5.png"
@@ -81,7 +81,7 @@ plot FILE_6x5 using 0:($2) title "6x5 ijk experiments"  with lines lt 30 lw 1 dt
 
 
 #------------- 6x6 -------------#       
-set title "Execution time, mean and Standard deviation Graph"
+set title "Execution time, mean and Standard deviation Graph (6x6 Matrix)"
 set ylabel "Time (ns)"
 set xlabel "Num de Experimento"
 set output "Graph_6x6.png"
@@ -110,7 +110,7 @@ plot FILE_6x6 using 0:($2) title "6x6 ijk experiments"  with lines lt 30 lw 1 dt
 
 
 #------------- 10x5 -------------#       
-set title "Execution time, mean and Standard deviation Graph"
+set title "Execution time, mean and Standard deviation Graph (10x5 Matrix)"
 set ylabel "Time (ns)"
 set xlabel "Num de Experimento"
 set output "Graph_10x5.png"
@@ -139,7 +139,7 @@ plot FILE_10x5 using 0:($2) title "10x5 ijk experiments"  with lines lt 30 lw 1 
 
 
 #------------- 600x600 -------------#       
-set title "Execution time, mean and Standard deviation Graph"
+set title "Execution time, mean and Standard deviation Graph (600x600 Matrix)"
 set ylabel "Time (ns)"
 set xlabel "Num de Experimento"
 set output "Graph_600x600.png"
