@@ -29,28 +29,34 @@
 
 #Variables
 ./run_experiments.sh --matrix ./data/5x5-F.txt --repeticiones 50 >> ./experimentos/exp5x5.txt
+sleep 10
 ./run_experiments.sh --matrix ./data/10x10-F.txt --repeticiones 50 >> ./experimentos/exp10x10.txt
+sleep 20
 ./run_experiments.sh --matrix ./data/20x20-F.txt --repeticiones 50 >> ./experimentos/exp20x20.txt
+sleep 30
 ./run_experiments.sh --matrix ./data/40x40-F.txt --repeticiones 50 >> ./experimentos/exp40x40.txt
+sleep 60
 ./run_experiments.sh --matrix ./data/80x80-F.txt --repeticiones 50 >> ./experimentos/exp80x80.txt
+sleep 120
 ./run_experiments.sh --matrix ./data/160x160-F.txt --repeticiones 50 >> ./experimentos/exp160x160.txt
+sleep 240
 ./run_experiments.sh --matrix ./data/320x320-F.txt --repeticiones 50 >> ./experimentos/exp320x320.txt
+sleep 480
 ./run_experiments.sh --matrix ./data/640x640-F.txt --repeticiones 50 >> ./experimentos/exp640x640.txt
+sleep 960
 
 ./run_experiments.sh --matrix ./data/5x5-F.txt --repeticiones 50 >> ./experimentos/2exp5x5.txt
+sleep 10
 ./run_experiments.sh --matrix ./data/10x10-F.txt --repeticiones 50 >> ./experimentos/2exp10x10.txt
+sleep 20
 ./run_experiments.sh --matrix ./data/20x20-F.txt --repeticiones 50 >> ./experimentos/2exp20x20.txt
+sleep 30
 ./run_experiments.sh --matrix ./data/40x40-F.txt --repeticiones 50 >> ./experimentos/2exp40x40.txt
+sleep 60
 ./run_experiments.sh --matrix ./data/80x80-F.txt --repeticiones 50 >> ./experimentos/2exp80x80.txt
+sleep 120
 ./run_experiments.sh --matrix ./data/160x160-F.txt --repeticiones 50 >> ./experimentos/2exp160x160.txt
+sleep 240
 ./run_experiments.sh --matrix ./data/320x320-F.txt --repeticiones 50 >> ./experimentos/2exp320x320.txt
+sleep 480
 ./run_experiments.sh --matrix ./data/640x640-F.txt --repeticiones 50 >> ./experimentos/2exp640x640.txt
-
-./run_experiments.sh --matrix ./data/5x5-F.txt --repeticiones 50 >> ./experimentos/3exp5x5.txt
-./run_experiments.sh --matrix ./data/10x10-F.txt --repeticiones 50 >> ./experimentos/3exp10x10.txt
-./run_experiments.sh --matrix ./data/20x20-F.txt --repeticiones 50 >> ./experimentos/3exp20x20.txt
-./run_experiments.sh --matrix ./data/40x40-F.txt --repeticiones 50 >> ./experimentos/3exp40x40.txt
-./run_experiments.sh --matrix ./data/80x80-F.txt --repeticiones 50 >> ./experimentos/3exp80x80.txt
-./run_experiments.sh --matrix ./data/160x160-F.txt --repeticiones 50 >> ./experimentos/3exp160x160.txt
-./run_experiments.sh --matrix ./data/320x320-F.txt --repeticiones 50 >> ./experimentos/3exp320x320.txt
-./run_experiments.sh --matrix ./data/640x640-F.txt --repeticiones 50 >> ./experimentos/3exp640x640.txt
