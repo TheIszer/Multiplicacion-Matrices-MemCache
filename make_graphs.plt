@@ -48,40 +48,25 @@ stats FILE_640x640 using 2 name "ijk640x640"
 stats FILE_640x640 using 3 name "kij640x640"
 
 #Obtenemos la media y desviacion estandar guardandola en un archivo de texto
-#Para el metodo IJK
-set print "dataExperimentsIJK.txt"
-print "#metodo:rows:mean:stddev"
-print "ijk:5:", ijk5x5_mean, ":", ijk5x5_stddev
-print "ijk:10:", ijk10x10_mean, ":", ijk10x10_stddev
-print "ijk:20:", ijk20x20_mean, ":", ijk20x20_stddev
-print "ijk:40:", ijk40x40_mean, ":", ijk40x40_stddev
-print "ijk:80:", ijk80x80_mean, ":", ijk80x80_stddev
-print "ijk:160:", ijk160x160_mean, ":", ijk160x160_stddev
-print "ijk:320:", ijk320x320_mean, ":", ijk320x320_stddev
-print "ijk:640:", ijk640x640_mean, ":", ijk640x640_stddev
+set print "dataExperiments.txt"
+print "#rows:metodo:mean:stddev:metodo:mean:stddev"
+print "5:ijk:", ijk5x5_mean, ":", ijk5x5_stddev, ":kij:", kij5x5_mean, ":", kij5x5_stddev
+print "10:ijk:", ijk10x10_mean, ":", ijk10x10_stddev, ":kij:", kij20x20_mean, ":", kij20x20_stddev
+print "20:ijk:", ijk20x20_mean, ":", ijk20x20_stddev, ":kij:", kij20x20_mean, ":", kij20x20_stddev
+print "40:ijk:", ijk40x40_mean, ":", ijk40x40_stddev, ":kij:", kij40x40_mean, ":", kij40x40_stddev
+print "80:ijk:", ijk80x80_mean, ":", ijk80x80_stddev, ":kij:", kij80x80_mean, ":", kij80x80_stddev
+print "160:ijk:", ijk160x160_mean, ":", ijk160x160_stddev, ":kij:", kij160x160_mean, ":", kij160x160_stddev
+print "320:ijk:", ijk320x320_mean, ":", ijk320x320_stddev, ":kij:", kij320x320_mean, ":", kij320x320_stddev
+print "640:ijk:", ijk640x640_mean, ":", ijk640x640_stddev, ":kij:", kij640x640_mean, ":", kij640x640_stddev
 
-#Para el metodo KIJ
-set print "dataExperimentsKIJ.txt"
-print "#metodo:rows:mean:stddev"
-print "kij:5:", kij5x5_mean, ":", kij5x5_stddev
-print "kij:10:", kij20x20_mean, ":", kij20x20_stddev
-print "kij:20:", kij20x20_mean, ":", kij20x20_stddev
-print "kij:40:", kij40x40_mean, ":", kij40x40_stddev
-print "kij:80:", kij80x80_mean, ":", kij80x80_stddev
-print "kij:160:", kij160x160_mean, ":", kij160x160_stddev
-print "kij:320:", kij320x320_mean, ":", kij320x320_stddev
-print "kij:640:", kij640x640_mean, ":", kij640x640_stddev
-
-#Archivos de datos de los experimentos:
-FILE_IJK="dataExperimentsIJK.txt"
-FILE_KIJ="dataExperimentsKIJ.txt"
-  
+#Archivo de datos de los experimentos:
+FILE_DATA="dataExperiments.txt"
 
 #-------------
-#	Tiempos de ejecucion, media y desviacion estandar
+#	GRAFICAS
 #------------- 
 	 
-#------------- 5x9 -------------#       
+#------------- Execution time Graph -------------#       
 set title "Execution time Graph (mean and Standard deviation for 50 experiments)"
 set ylabel "Time (ns)"
 set xlabel "Size of Square Matrix"
@@ -99,8 +84,40 @@ set ytics format "10^{%L}"
 set yrange[0:]
 set logscale y 10
 
-plot FILE_IJK using 2:3:4 title "ijk" lt 7 lc 22 lw 1 with yerrorbars,\
-        FILE_KIJ using 2:3:4 title "kij" lt 7 lc 15 lw 1 with yerrorbars,\
+plot FILE_DATA using 1:3:4 title "ijk" lt 7 lc 22 lw 1 with yerrorbars,\
+        FILE_DATA using 1:6:7 title "kij" lt 7 lc 15 lw 1 with yerrorbars,\
+
+
+#------------- SPEED UP -------------#       
+set title "SpeedUp Graph (KIJ method)"
+set ylabel "SpeedUp(S)"
+set xlabel "Size of Square Matrix"
+set output "Graph_2.png"
+
+#Se coloca la leyenda del gráfico.
+set key inside bottom left box lt -1
+#Estilo del grafico.
+set style fill pattern 0 border -1
+set grid 
+
+#Se coloca escala logaritmica base 2, rango y formato para el eje Y.
+#set ytics format "%.2f"
+#set yrange[0:5]
+#set logscale y 2
+
+#plot FILE_DATA using 1:($) title "ijk" with linespoints lt 7 lc 22 lw 1,\
+        FILE_DATA using 1:3 title "kij" with linespoints lt 7 lc 15 lw 1,\
+
+#Se grafican utilizando los 2 archivos de datos
+#Se sigue la formula: SpeedUp = (t_ejec_seq) / (t_ejec_improved), 
+#                               donde: (t_ejec_ijk) / (t_ejec_kij)
+#Se utilizan el 3er y 6to rubro de los datos: S = $3 / $6
+plot FILE_DATA using 1:(($3)/($6)) title "kij" with linespoints lt 7 lc 22 pointtype 7 pointsize 1.3, x title "ideal S" lt 7 lc 0
+
+#plot FILE_2TH using ($3)/($4):xtic(1) title "2 threads"  with linespoints lt -1 pointtype 11 pointsize 1.3 dt 1,\
+        FILE_4TH using ($3)/($4):xtic(1) title "4 threads"  with linespoints lt -1 pointtype 12 pointsize 1.3 dt 1,\
+        FILE_8TH using ($3)/($4):xtic(1) title "8 threads"  with linespoints lt -1 pointtype 13 pointsize 1.3 dt 1    
+
 
 #Se grafican utilizando los archivos de datos generados por los experimentos.
 #plot FILE_5x9 using 0:($2) title "5x9 ijk experiments"  with lines lt 30 lw 1 dt 1,\
