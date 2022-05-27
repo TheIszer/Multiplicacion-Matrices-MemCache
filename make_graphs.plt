@@ -21,31 +21,29 @@ FILE_160x160="experimentos/exp160x160.txt"
 FILE_320x320="experimentos/exp320x320.txt"
 FILE_640x640="experimentos/exp640x640.txt"
 
+FILE_1280x1280="experimentos/exp1280x1280.txt"
+
 #Obtener la media y la desviacion estandar de cada archivo a traves de stats
 #Se guarda esta informacion en una variable
 stats FILE_5x5 using 2 name "ijk5x5"
 stats FILE_5x5 using 3 name "kij5x5"
-
 stats FILE_10x10 using 2 name "ijk10x10"
 stats FILE_10x10 using 3 name "kij10x10"
-
 stats FILE_20x20 using 2 name "ijk20x20"
 stats FILE_20x20 using 3 name "kij20x20"
-
 stats FILE_40x40 using 2 name "ijk40x40"
 stats FILE_40x40 using 3 name "kij40x40"
-
 stats FILE_80x80 using 2 name "ijk80x80"
 stats FILE_80x80 using 3 name "kij80x80"
-
 stats FILE_160x160 using 2 name "ijk160x160"
 stats FILE_160x160 using 3 name "kij160x160"
-
 stats FILE_320x320 using 2 name "ijk320x320"
 stats FILE_320x320 using 3 name "kij320x320"
-
 stats FILE_640x640 using 2 name "ijk640x640"
 stats FILE_640x640 using 3 name "kij640x640"
+
+stats FILE_1280x1280 using 2 name "ijk1280x1280"
+stats FILE_1280x1280 using 3 name "kij1280x1280"
 
 #Obtenemos la media y desviacion estandar guardandola en un archivo de texto
 set print "dataExperiments.txt"
@@ -58,6 +56,7 @@ print "80:ijk:", ijk80x80_mean, ":", ijk80x80_stddev, ":kij:", kij80x80_mean, ":
 print "160:ijk:", ijk160x160_mean, ":", ijk160x160_stddev, ":kij:", kij160x160_mean, ":", kij160x160_stddev
 print "320:ijk:", ijk320x320_mean, ":", ijk320x320_stddev, ":kij:", kij320x320_mean, ":", kij320x320_stddev
 print "640:ijk:", ijk640x640_mean, ":", ijk640x640_stddev, ":kij:", kij640x640_mean, ":", kij640x640_stddev
+print "1280:ijk:", ijk1280x1280_mean, ":", ijk1280x1280_stddev, ":kij:", kij1280x1280_mean, ":", kij1280x1280_stddev
 
 #Archivo de datos de los experimentos:
 FILE_DATA="dataExperiments.txt"
@@ -70,7 +69,7 @@ FILE_DATA="dataExperiments.txt"
 set title "Execution time Graph (mean and Standard deviation for 50 experiments)"
 set ylabel "Time (ns)"
 set xlabel "Size of Square Matrix"
-set output "Graph_1.png"
+set output "Graph_ExecutionTime.png"
 
 #Se coloca la leyenda del gráfico.
 set key inside bottom left box lt -1
@@ -86,7 +85,6 @@ set logscale y 10
 
 plot FILE_DATA using 1:3:4 title "ijk" lt 7 lc 22 lw 1 with yerrorbars,\
         FILE_DATA using 1:6:7 title "kij" lt 7 lc 15 lw 1 with yerrorbars,\
-
 
 #------------- SPEED UP -------------#       
 set title "SpeedUp Graph (KIJ method)"
