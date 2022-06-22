@@ -10,6 +10,7 @@
 #			$ ./mult --A <ruta_al_archivo_de_datos>
 #/////////////////////////////////////////////////////////////////////////////////
 TARGET=./mult
+WORK_NAME="tarea2"
 
 DEBUG=-DDEBUG
 DEBUG=
@@ -28,6 +29,8 @@ CPPFLAGS =-std=c++17  -Wno-deprecated $(INTRINSICS)
 LDFLAGS =-L/usr/local/lib 
 LDLIBS = -lm -lpthread 
 
+DIR_SUBMIT="/entregas/$(USER)/$(WORK_NAME)"
+
 all: $(TARGET)
 	@echo Made [ $? ] OK :\)
 	
@@ -43,14 +46,15 @@ $(DIR_OBJ)/%.o: %.cc
 clean:
 	@$(RM) core *~ \#*\# *.bak *.BAK *\%
 	@$(RM) -f .dummy $(OBJECTS)
-
-distclean:
-	@$(RM) $(TARGET)
 	@$(RM) -rf $(DIR_OBJ)
 
+distclean: clean
+	@$(RM) $(TARGET)
 
-
-
-
-
-
+submit: distclean
+	@echo "deleting old $(DIR_SUBMIT) content ..."
+	@$(RM) -rf $(DIR_SUBMIT)
+	@echo "submitting homework to $(DIR_SUBMIT) ..."
+	@mkdir -p $(DIR_SUBMIT)
+	@tar cf - . | tar xvf - -C $(DIR_SUBMIT)
+	@echo "done"
