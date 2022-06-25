@@ -65,7 +65,7 @@ void showRegister(std::string name, __m128 reg){
 }
 
 //SIMD
-void DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
+void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
 	__m128 matrix_a; //registro de float de 128 bits	
 	__m128 step01;
 	matrix_a = _mm_setzero_ps();
@@ -90,6 +90,6 @@ void DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C)
 	showRegister("step01", step01);
 }
 
-void DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
+void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
 
 }
