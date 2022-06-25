@@ -122,8 +122,14 @@ int main(int argc, char** argv)
 		std::cout << std::endl;
 	}*/
 
-	//rowsxcols:time_ijk:time_kij #<-- nros dependen de la ejecución
-	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << "\n";
+	//Llamada al método del algoritmo SIMD ijk
+	timer1.start();
+	mm.DOijkSIMD(m1, m1, C);
+	timer1.stop(); 
+
+	//rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD #<-- nros dependen de la ejecución
+	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD";
+	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << ":" << timer1.elapsed() << ":" << "time_kijSIMD" << "\n";
 
 	return(EXIT_SUCCESS);
 }
