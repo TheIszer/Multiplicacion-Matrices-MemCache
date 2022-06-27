@@ -66,9 +66,19 @@ void showRegister(std::string name, __m128 reg){
 
 //SIMD
 void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
-	__m128 matrix_a; //registro de float de 128 bits	
+	__m128 matrix_a; //registro de float de 128 bits
+	__m128 matrix_b; //registro de float de 128 bits
+
 	__m128 step01;
+	__m128 step02;
+	__m128 step03;
+	__m128 step04;
+	__m128 step05;
+	__m128 step06;
+	__m128 step07;
+
 	matrix_a = _mm_setzero_ps();
+	matrix_b = _mm_setzero_ps();
 
 	float* dataMemoryIn  = new float[4];
 	float* dataMemoryOut = new float[4];
@@ -81,13 +91,29 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 	// __m128 _mm_load_ps(float const* mem_addr)
 	// dst[127:0] := MEM[mem_addr+127:mem_addr]
 	matrix_a = _mm_load_ps(dataMemoryIn);
+	matrix_b = _mm_load_ps(dataMemoryIn);
 	
 	showRegister("matrix_a", matrix_a);
 	
 	//step01 = matrixA;
-	step01 = _mm_shuffle_ps(matrix_a, matrix_a, _MM_SHUFFLE(3,3,0,0) );
+	step01 = _mm_shuffle_ps(matrix_a, matrix_a, _MM_SHUFFLE(1,1,3,3) );
+	step02 = _mm_shuffle_ps(matrix_b, matrix_b, _MM_SHUFFLE(2,3,2,3) );
+	step03 = _mm_shuffle_ps(matrix_a, matrix_a, _MM_SHUFFLE(0,0,2,2) );
+	step04 = _mm_shuffle_ps(matrix_b, matrix_b, _MM_SHUFFLE(0,1,0,1) );
+
+	step05 = _mm_mul_ps(step01, step02);
+	step06 = _mm_mul_ps(step03, step04);
+
+	step07 = _mm_add_ps(step05, step06);
+
 	
 	showRegister("step01", step01);
+	showRegister("step02", step02);
+	showRegister("step03", step03);
+	showRegister("step04", step04);
+	showRegister("step05", step05);
+	showRegister("step06", step06);
+	showRegister("step07", step07);
 }
 
 void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){

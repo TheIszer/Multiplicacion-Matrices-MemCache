@@ -128,7 +128,7 @@ int main(int argc, char** argv)
 	timer1.stop(); 
 
 	//rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD #<-- nros dependen de la ejecución
-	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD";
+	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD\n";
 	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << ":" << timer1.elapsed() << ":" << "time_kijSIMD" << "\n";
 
 	return(EXIT_SUCCESS);
