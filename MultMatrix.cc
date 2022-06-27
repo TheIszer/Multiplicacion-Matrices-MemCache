@@ -114,6 +114,14 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 	showRegister("step05", step05);
 	showRegister("step06", step06);
 	showRegister("step07", step07);
+
+	_mm_store_ps(dataMemoryOut, step07);
+
+	for (int i = 0; i < 4; i++){
+		std::cout << dataMemoryOut[i];
+		std::cout << " ";
+	}
+	std::cout << std::endl;
 }
 
 void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
