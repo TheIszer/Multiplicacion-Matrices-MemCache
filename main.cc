@@ -104,21 +104,21 @@ int main(int argc, char** argv)
 	std::cout << "MATRIZ C\n";
 	for(size_t i=0; i< C.rows(); i++){
 		for(size_t j=0; j< C.cols(); j++){
-			std::cout << C(i,j) << "\t";
+			std::cout << C.value(i,j) << "\t";
 		}
 		std::cout << std::endl;
 	}
 
 	//Llamada al método del algoritmo kij
 	timer3.start();
-	//mm.DOkij(m1, m1, C2);
+	mm.DOkij(m1, m1, C2);
 	timer3.stop();
 
 	//Imprimir la matriz C2
 	std::cout << "MATRIZ C2\n";
 	for(size_t i=0; i< C2.rows(); i++){
 		for(size_t j=0; j< C2.cols(); j++){
-			std::cout << C2(i,j) << "\t";
+			std::cout << C2.value(i,j) << "\t";
 		}
 		std::cout << std::endl;
 	}
@@ -126,13 +126,13 @@ int main(int argc, char** argv)
 
 	//Llamada al método del algoritmo SIMD ijk
 	timer1.start();
-	//mm.DOijkSIMD(m1, m1, C3);
+	mm.DOijkSIMD(m1, m1, C3);
 	timer1.stop(); 
 	//Imprimir la matriz C
 	std::cout << "MATRIZ C3\n";
 	for(size_t i=0; i< C3.rows(); i++){
 		for(size_t j=0; j< C3.cols(); j++){
-			std::cout << C3(i,j) << "\t";
+			std::cout << C3.value(i,j) << "\t";
 		}
 		std::cout << std::endl;
 	}
