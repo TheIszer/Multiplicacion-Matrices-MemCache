@@ -94,6 +94,7 @@ int main(int argc, char** argv)
 	Matrix<float> C(m1.rows(), m1.cols());
 	Matrix<float> C2(m1.rows(), m1.cols());
 	Matrix<float> C3(m1.rows(), m1.cols());
+	Matrix<float> C4(m1.rows(), m1.cols());
 	
 	//Llamada al método del algoritmo ijk
 	timer2.start();
@@ -136,6 +137,19 @@ int main(int argc, char** argv)
 		}
 		std::cout << std::endl;
 	}
+
+	//Llamada al método del algoritmo SIMD ijk
+	timer1.start();
+	mm.DOkijSIMD(m1, m1, C4);
+	timer1.stop(); 
+	//Imprimir la matriz C
+	/*std::cout << "MATRIZ C3\n";
+	for(size_t i=0; i< C3.rows(); i++){
+		for(size_t j=0; j< C3.cols(); j++){
+			std::cout << C3(i,j) << "\t";
+		}
+		std::cout << std::endl;
+	}*/
 
 	//rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD #<-- nros dependen de la ejecución
 	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD\n";
