@@ -64,11 +64,71 @@ void showRegister(std::string name, __m128 reg){
 	delete[] tmpOut;
 }
 
+//Método ijk de multiplicacion de matrices
+void MultMatrix::DOijkSIMD(const Matrix<float>& A,const Matrix<float>& B, Matrix<float>& C)
+{
+	//Variables i k j, siendo las matrices de tamaño ik & kj
+	//ESTE METODO SOLO SIRVE PARA MATRICES CUADRADRAS 
+	//		CON TAMAÑO DIVISIBLE EN 4
+	int size = A.rows();
+
+	for(size_t i=0; i < size; i++){
+		float* arrTmp01  = new float[4];
+		float* arrTmp02  = new float[4];
+		float* result  = new float[4];
+		__m128 vecTmp01;
+		__m128 vecTmp02;
+		__m128 vecResult;
+
+		vecTmp01 = _mm_setzero_ps();
+		vecTmp02 = _mm_setzero_ps();
+		vecResult = _mm_setzero_ps();
+
+		for(size_t j=0; j < size-4; j++){
+			for(size_t k=0; k < size; k+=4){
+				//Llenamos el arreglo 1
+				arrTmp01[0] = A.value(i,k);
+				arrTmp01[1] = A.value(i,k+1);
+				arrTmp01[2] = A.value(i,k+2);
+				arrTmp01[3] = A.value(i,k+3);
+
+				//Llenamos el arreglo 2
+				arrTmp02[0] = B.value(k, j);
+				arrTmp02[1] = B.value(k+1, j);
+				arrTmp02[2] = B.value(k+2, j);
+				arrTmp02[3] = B.value(k+3, j);
+
+				//Cargamos los vectores con los arreglos
+				//	__m128 _mm_load_ps(float const* mem_addr)
+				//	dst[127:0] := MEM[mem_addr+127:mem_addr]
+				vecTmp01 = _mm_load_ps(arrTmp01);
+				vecTmp02 = _mm_load_ps(arrTmp02);
+
+				//Multiplicamos los vectores
+				//	__m128 _mm_mul_ps (__m128 a, __m128 b)
+				//	st[127:i] := a[127:i] * b[127:i]
+				vecResult = _mm_mul_ps(vecTmp01, vecTmp02);
+				//Los guardamos en un arreglo
+				//	void _mm_store_ps (float* mem_addr, __m128 a)
+				//	MEM[mem_addr+127:mem_addr] := a[127:0]
+				_mm_store_ps(result, vecResult);
+
+				//Almacenamos el resultado en la matriz C
+				//	c[i][j] += result[0]+result[1]+result[2]+result[3];
+				C.value(i, j,  C.value(i, j)+result[0]+result[1]+result[2]+result[3]  );
+			}			
+		}
+	}
+
+}
+
 //SIMD
+/*
 void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
 	__m128 matrix_a; //registro de float de 128 bits
 	__m128 matrix_b; //registro de float de 128 bits
 
+	__m128 step[7];
 	__m128 step01;
 	__m128 step02;
 	__m128 step03;
@@ -123,7 +183,7 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 	}
 	std::cout << std::endl;
 }
-
+*/
 void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C){
 
 }
