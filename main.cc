@@ -114,14 +114,14 @@ int main(int argc, char** argv)
 	mm.DOkij(m1, m1, C2);
 	timer3.stop();
 
-	//Imprimir la matriz C
-	/*std::cout << "MATRIZ C2\n";
+	//Imprimir la matriz C2
+	std::cout << "MATRIZ C2\n";
 	for(size_t i=0; i< C2.rows(); i++){
 		for(size_t j=0; j< C2.cols(); j++){
 			std::cout << C2(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}*/
+	}
 
 
 	//Llamada al método del algoritmo SIMD ijk
@@ -136,7 +136,6 @@ int main(int argc, char** argv)
 		}
 		std::cout << std::endl;
 	}
-
 
 	//rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD #<-- nros dependen de la ejecución
 	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD\n";
