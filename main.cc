@@ -111,7 +111,7 @@ int main(int argc, char** argv)
 
 	//Llamada al método del algoritmo kij
 	timer3.start();
-	mm.DOkij(m1, m1, C2);
+	//mm.DOkij(m1, m1, C2);
 	timer3.stop();
 
 	//Imprimir la matriz C2
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
 
 	//Llamada al método del algoritmo SIMD ijk
 	timer1.start();
-	mm.DOijkSIMD(m1, m1, C3);
+	//mm.DOijkSIMD(m1, m1, C3);
 	timer1.stop(); 
 	//Imprimir la matriz C
 	std::cout << "MATRIZ C3\n";
