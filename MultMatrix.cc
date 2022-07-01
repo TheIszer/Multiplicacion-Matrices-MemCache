@@ -129,7 +129,7 @@ void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 	__m128 test;
 	float* r = new float[1];
 	r[0] = 2.93212f;
-	test = _mm_load_ps1(r);
+	test = _mm_load_ps(r);
 	showRegister("test", test);
 
 	/*
