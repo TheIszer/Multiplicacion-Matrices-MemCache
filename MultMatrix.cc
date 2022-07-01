@@ -163,9 +163,9 @@ void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 					_mm_store_ps(result, vecResult);
 
 					C.value(i,j, C.value(i, j)+result[0] );
-					C.value(i,j+1, C.value(i, j)+result[1] );
-					C.value(i,j+2, C.value(i, j)+result[2] );
-					C.value(i,j+3, C.value(i, j)+result[3] );
+					C.value(i,j+1, C.value(i, j+1)+result[1] );
+					C.value(i,j+2, C.value(i, j+2)+result[2] );
+					C.value(i,j+3, C.value(i, j+3)+result[3] );
 				}			
 		}
 	}
