@@ -101,13 +101,13 @@ int main(int argc, char** argv)
 	timer2.stop();
 	
 	//Imprimir la matriz C
-	/*std::cout << "MATRIZ C\n";
+	std::cout << "MATRIZ C\n";
 	for(size_t i=0; i< C.rows(); i++){
 		for(size_t j=0; j< C.cols(); j++){
 			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}*/
+	}
 
 	//Llamada al método del algoritmo kij
 	timer3.start();
