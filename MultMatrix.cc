@@ -84,7 +84,7 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A,const Matrix<float>& B, Matrix
 		vecTmp02 = _mm_setzero_ps();
 		vecResult = _mm_setzero_ps();
 
-		for(size_t j=0; j < size-4; j++){
+		for(size_t j=0; j < size; j++){
 			for(size_t k=0; k < size; k+=4){
 				//Llenamos el arreglo 1
 				arrTmp01[0] = A.value(i,k);
