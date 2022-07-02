@@ -78,13 +78,13 @@ int main(int argc, char** argv)
 	//std::cout << "Time to load matrix in memory: " << timer1.elapsed() << " ns\n";
 	
 	// Imprimir la matriz m1
-	std::cout << "MATRIZ m1\n";
+	/*std::cout << "MATRIZ m1\n";
 	for(size_t i=0; i< m1.rows(); i++){
 		for(size_t j=0; j< m1.cols(); j++){
 			std::cout << m1(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 	
 
 	///////////////////////////////////////
@@ -104,13 +104,13 @@ int main(int argc, char** argv)
 	timer2.stop();
 	
 	//Imprimir la matriz C
-	std::cout << "MATRIZ C\n";
+	/*std::cout << "MATRIZ C\n";
 	for(size_t i=0; i< C.rows(); i++){
 		for(size_t j=0; j< C.cols(); j++){
 			std::cout << C(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 	//Llamada al método del algoritmo kij
 	timer3.start();
@@ -118,13 +118,13 @@ int main(int argc, char** argv)
 	timer3.stop();
 
 	//Imprimir la matriz C2
-	std::cout << "MATRIZ C2\n";
+	/*std::cout << "MATRIZ C2\n";
 	for(size_t i=0; i< C2.rows(); i++){
 		for(size_t j=0; j< C2.cols(); j++){
 			std::cout << C2(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 
 	//Llamada al método del algoritmo SIMD ijk
@@ -132,29 +132,29 @@ int main(int argc, char** argv)
 	mm.DOijkSIMD(m1, m1, C3);
 	timer4.stop(); 
 	//Imprimir la matriz C
-	std::cout << "MATRIZ C3\n";
+	/*std::cout << "MATRIZ C3\n";
 	for(size_t i=0; i< C3.rows(); i++){
 		for(size_t j=0; j< C3.cols(); j++){
 			std::cout << C3(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 	//Llamada al método del algoritmo SIMD ijk
 	timer5.start();
 	mm.DOkijSIMD(m1, m1, C4);
 	timer5.stop(); 
-	//Imprimir la matriz C
-	std::cout << "MATRIZ C4\n";
+	//Imprimir la matriz C4
+	/*std::cout << "MATRIZ C4\n";
 	for(size_t i=0; i< C4.rows(); i++){
 		for(size_t j=0; j< C4.cols(); j++){
 			std::cout << C4(i,j) << "\t";
 		}
 		std::cout << std::endl;
-	}
+	}*/
 
 	//rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD #<-- nros dependen de la ejecución
-	std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD\n";
+	//std::cout << "rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD\n";
 	std::cout << m1.rows() << "x" << m1.cols() << ":" << timer2.elapsed() << ":" << timer3.elapsed() << ":" << timer4.elapsed() << ":" << timer5.elapsed() << "\n";
 
 	return(EXIT_SUCCESS);
