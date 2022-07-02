@@ -126,20 +126,6 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 //Método kij de multiplicacion de matrices
 void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C)
 {
-	//__m128 test;
-	//float* r = new float[1];
-	//r[0] = 2.93212f;
-	//test = _mm_load_ps1(r);
-	//showRegister("test", test);
-
-	float* arrTmp = new float[4];
-	float* result  = new float[4];
-	__m128 vecTmp;
-	__m128 vecResult;
-
-	vecTmp = _mm_setzero_ps();
-	vecResult = _mm_setzero_ps();
-
 	for(size_t k=0; k < A.cols(); k++){
 		for(size_t i=0; i < A.rows(); i++){
 			//float r = a[i][k]
@@ -150,16 +136,22 @@ void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 				for(size_t j=0; j < B.cols(); j+=4){
 					//c[i][j] += r * b[k][j];
 					//Llenamos el arreglo temporal con B
+					float* arrTmp = new float[4];
 					arrTmp[0] = B.value(k, j);
 					arrTmp[1] = B.value(k, j+1);
 					arrTmp[2] = B.value(k, j+2);
 					arrTmp[3] = B.value(k, j+3);
 					//Cargamos los vectores con los arreglos
+					__m128 vecTmp;
+					vecTmp = _mm_setzero_ps();
 					vecTmp = _mm_load_ps(arrTmp);
 
 					//Multiplicamos los vectores
+					__m128 vecResult;
+					vecResult = _mm_setzero_ps();
 					vecResult = _mm_mul_ps(rVec, vecTmp);
 					//Los guardamos en un arreglo
+					float* result  = new float[4];
 					_mm_store_ps(result, vecResult);
 
 					C.value(i,j, C.value(i, j)+result[0] );
