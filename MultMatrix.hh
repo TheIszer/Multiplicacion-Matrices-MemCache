@@ -9,9 +9,9 @@
 #include <global.hh>
 #include <Matrix.hpp>
 // Intrinsics to use
-#include <emmintrin.h> 
-#include <immintrin.h> 
-#include <xmmintrin.h>
+//#include <emmintrin.h> 
+//#include <immintrin.h> 
+#include <xmmintrin.h>	//SSE
 
 class MultMatrix
 {
