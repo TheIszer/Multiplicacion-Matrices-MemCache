@@ -20,7 +20,7 @@ FILE_80x80="experimentos/exp80x80.txt"
 FILE_160x160="experimentos/exp160x160.txt"
 FILE_320x320="experimentos/exp320x320.txt"
 FILE_640x640="experimentos/exp640x640.txt"
-FILE_1280x1280="experimentos/exp1280x1280.txt"
+#FILE_1280x1280="experimentos/exp1280x1280.txt"
 
 #Obtener la media y la desviacion estandar de cada archivo a traves de stats
 #Se guarda esta informacion en una variable
@@ -40,8 +40,8 @@ stats FILE_320x320 using 2 name "ijk320x320"
 stats FILE_320x320 using 3 name "kij320x320"
 stats FILE_640x640 using 2 name "ijk640x640"
 stats FILE_640x640 using 3 name "kij640x640"
-stats FILE_1280x1280 using 2 name "ijk1280x1280"
-stats FILE_1280x1280 using 3 name "kij1280x1280"
+#stats FILE_1280x1280 using 2 name "ijk1280x1280"
+#stats FILE_1280x1280 using 3 name "kij1280x1280"
 #UPDATE SIMD
 stats FILE_4x4 using 4 name "ijkSIMD4x4"
 stats FILE_4x4 using 5 name "kijSIMD4x4"
@@ -59,8 +59,8 @@ stats FILE_320x320 using 4 name "ijkSIMD320x320"
 stats FILE_320x320 using 5 name "kijSIMD320x320"
 stats FILE_640x640 using 4 name "ijkSIMD640x640"
 stats FILE_640x640 using 5 name "kijSIMD640x640"
-stats FILE_1280x1280 using 4 name "ijkSIMD1280x1280"
-stats FILE_1280x1280 using 5 name "kijSIMD1280x1280"
+#stats FILE_1280x1280 using 4 name "ijkSIMD1280x1280"
+#stats FILE_1280x1280 using 5 name "kijSIMD1280x1280"
 
 #Obtenemos la media y desviacion estandar guardandola en un archivo de texto
 set print "dataExperiments.txt"
@@ -81,7 +81,7 @@ print "320:ijk:", ijk320x320_mean, ":", ijk320x320_stddev, ":kij:", kij320x320_m
         ":ijkSIMD:", ijkSIMD320x320_mean, ":", ijkSIMD320x320_stddev, ":kijSIMD:", kijSIMD320x320_mean, ":", kijSIMD320x320_stddev
 print "640:ijk:", ijk640x640_mean, ":", ijk640x640_stddev, ":kij:", kij640x640_mean, ":", kij640x640_stddev, \
         ":ijkSIMD:", ijkSIMD640x640_mean, ":", ijkSIMD640x640_stddev, ":kijSIMD:", kijSIMD640x640_mean, ":", kijSIMD640x640_stddev
-print "1280:ijk:", ijk1280x1280_mean, ":", ijk1280x1280_stddev, ":kij:", kij1280x1280_mean, ":", kij1280x1280_stddev, \
+#print "1280:ijk:", ijk1280x1280_mean, ":", ijk1280x1280_stddev, ":kij:", kij1280x1280_mean, ":", kij1280x1280_stddev, \
         ":ijkSIMD:", ijkSIMD1280x1280_mean, ":", ijkSIMD1280x1280_stddev, ":kijSIMD:", kijSIMD1280x1280_mean, ":", kijSIMD1280x1280_stddev
 
 #Archivo de datos de los experimentos:
@@ -91,11 +91,11 @@ FILE_DATA="dataExperiments.txt"
 #	GRAFICAS
 #------------- 
 	 
-#------------- Execution time Graph -------------#       
+#------------- Execution time Graph ijk vs SIMD ijk -------------#       
 set title "Execution time Graph (mean and Standard deviation for 50 experiments)"
 set ylabel "Time (ns)"
 set xlabel "Size of Square Matrix"
-set output "Graph_ExecutionTime.png"
+set output "Graph_ExecutionTimeIJK.png"
 
 #Se coloca la leyenda del gráfico.
 set key inside bottom left box lt -1
@@ -111,15 +111,35 @@ set yrange[0:]
 set logscale y 10
 set logscale x 10
 
-plot FILE_DATA using 1:3:4 title "ijk" lt 7 lc 22 lw 1 with yerrorbars,\
-        FILE_DATA using 1:6:7 title "kij" lt 7 lc 15 lw 1 with yerrorbars,\
-        FILE_DATA using 1:9:10 title "ijkSIMD" lt 7 lc 9 lw 1 with yerrorbars,\
-        FILE_DATA using 1:12:13 title "kijSIMD" lt 7 lc 28 lw 1 with yerrorbars
+plot FILE_DATA using 1:3:4 title "ijk" lt 6 lc 22 lw 1 with yerrorbars,\
+        FILE_DATA using 1:9:10 title "ijkSIMD" lt 4 lc 7 lw 1 with yerrorbars
 
+#------------- Execution time Graph kij vs SIMD kij -------------#       
+set title "Execution time Graph (mean and Standard deviation for 50 experiments)"
+set ylabel "Time (ns)"
+set xlabel "Size of Square Matrix"
+set output "Graph_ExecutionTimeKIJ.png"
+
+#Se coloca la leyenda del gráfico.
+set key inside bottom left box lt -1
+#Estilo del grafico.
+set style fill pattern 0 border -1
+set grid 
+
+#Se coloca escala logaritmica base 2, rango y formato para el eje Y y X.
+set ytics format "10^{%L}"
+set xtics format "10^{%L}"
+#set yrange [0:1000000000000]
+set yrange[0:]
+set logscale y 10
+set logscale x 10
+
+plot FILE_DATA using 1:6:7 title "kij" lt 24 lc 26 lw 1 with yerrorbars,\
+        FILE_DATA using 1:12:13 title "kijSIMD" lt 25 lc 28 lw 1 with yerrorbars
 
 
 #------------- SPEED UP -------------#       
-set title "SpeedUp Graph (KIJ method)"
+set title "SpeedUp Graph (IJK and KIJ method)"
 set ylabel "SpeedUp(S)"
 set xlabel "Size of Square Matrix"
 set output "Graph_SpeedUp.png"
