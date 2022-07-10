@@ -98,7 +98,7 @@ set xlabel "Size of Square Matrix"
 set output "Graph_ExecutionTimeIJK.png"
 
 #Se coloca la leyenda del gráfico.
-set key inside bottom left box lt -1
+set key inside bottom right box lt -1
 #Estilo del grafico.
 set style fill pattern 0 border -1
 set grid 
@@ -107,12 +107,12 @@ set grid
 set ytics format "10^{%L}"
 set xtics format "10^{%L}"
 #set yrange [0:1000000000000]
-set yrange[0:]
+set yrange[1000:]
 set logscale y 10
 set logscale x 10
 
 plot FILE_DATA using 1:3:4 title "ijk" lt 6 lc 22 lw 1 with yerrorbars,\
-        FILE_DATA using 1:9:10 title "ijkSIMD" lt 4 lc 7 lw 1 with yerrorbars
+        FILE_DATA using 1:9:10 title "ijkSIMD" lt 30 lc 7 lw 1 with yerrorbars
 
 #------------- Execution time Graph kij vs SIMD kij -------------#       
 set title "Execution time Graph (mean and Standard deviation for 50 experiments)"
@@ -121,7 +121,7 @@ set xlabel "Size of Square Matrix"
 set output "Graph_ExecutionTimeKIJ.png"
 
 #Se coloca la leyenda del gráfico.
-set key inside bottom left box lt -1
+set key inside bottom right box lt -1
 #Estilo del grafico.
 set style fill pattern 0 border -1
 set grid 
@@ -130,11 +130,11 @@ set grid
 set ytics format "10^{%L}"
 set xtics format "10^{%L}"
 #set yrange [0:1000000000000]
-set yrange[0:]
+set yrange[1000:]
 set logscale y 10
 set logscale x 10
 
-plot FILE_DATA using 1:6:7 title "kij" lt 24 lc 26 lw 1 with yerrorbars,\
+plot FILE_DATA using 1:6:7 title "kij" lt 6 lc 26 lw 1 with yerrorbars,\
         FILE_DATA using 1:12:13 title "kijSIMD" lt 25 lc 28 lw 1 with yerrorbars
 
 
@@ -151,6 +151,7 @@ set style fill pattern 0 border -1
 set grid 
 
 #Se coloca escala normal base 2, rango y formato para el eje Y y X.
+set yrange[0.1:]
 set ytics format "%.2f"
 
 #Se grafican utilizando los 2 archivos de datos
@@ -158,4 +159,4 @@ set ytics format "%.2f"
 #                               donde: (t_ejec_ijk) / (t_ejec_ijkSIMD)
 #Se utilizan el 3er y 6to rubro de los datos: S = $3 / $9
 plot FILE_DATA using 1:(($3)/($9)) title "ijk" with linespoints lt 7 lc 22 pointtype 7 pointsize 1.3, \
-        FILE_DATA using 1:(($6)/($12)) title "kij" with linespoints lt 7 lc 7 pointtype 7 pointsize 1.3
+        FILE_DATA using 1:(($6)/($12)) title "kij" with linespoints lt 7 lc 7 pointtype 8 pointsize 1.3
