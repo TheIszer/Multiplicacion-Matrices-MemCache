@@ -26,3 +26,4 @@ NOTA: Al ejecutar make_graphs.plt se crean los siguientes archivos:
     Graph_ExecutionTimeIJK.png
     Graph_ExecutionTimeKIJ.png
     Graph_SpeedUp.png
+    
