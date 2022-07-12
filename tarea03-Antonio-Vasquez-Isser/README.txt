@@ -23,5 +23,7 @@ Archivos extras generados:
 NOTA: Al ejecutar make_graphs.plt se crean los siguientes archivos:
     dataExperiments.txt =>  Archivo de texto donde se guardan los datos
                             recopilados de los experimentos.
-    Graph_ExecutionTime.png
+    Graph_ExecutionTimeIJK.png
+    Graph_ExecutionTimeKIJ.png
     Graph_SpeedUp.png
+    
