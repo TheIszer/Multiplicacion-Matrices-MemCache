@@ -1,4 +1,4 @@
-#rowsxcols:time_ijk:time_kij
+#rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD
 40x40:1.58357e+06:1.29513e+06:816601:2.8667e+06
 40x40:2.11312e+06:1.77604e+06:1.19226e+06:3.71126e+06
 40x40:2.64081e+06:2.02868e+06:1.40872e+06:4.20824e+06

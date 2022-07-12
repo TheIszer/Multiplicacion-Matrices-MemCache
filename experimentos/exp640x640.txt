@@ -1,4 +1,4 @@
-#rowsxcols:time_ijk:time_kij
+#rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD
 640x640:7.34998e+09:5.57229e+09:4.63044e+09:1.49496e+10
 640x640:6.91613e+09:5.68539e+09:4.25461e+09:1.13443e+10
 640x640:7.31448e+09:5.7411e+09:4.37921e+09:1.00765e+10

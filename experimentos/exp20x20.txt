@@ -1,4 +1,4 @@
-#rowsxcols:time_ijk:time_kij
+#rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD
 20x20:211023:169927:124603:392401
 20x20:245687:270905:143267:502657
 20x20:218348:181528:129271:530578

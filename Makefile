@@ -10,7 +10,7 @@
 #			$ ./mult --A <ruta_al_archivo_de_datos>
 #/////////////////////////////////////////////////////////////////////////////////
 TARGET=./mult
-WORK_NAME="tarea2"
+WORK_NAME="tarea3"
 
 DEBUG=-DDEBUG
 DEBUG=

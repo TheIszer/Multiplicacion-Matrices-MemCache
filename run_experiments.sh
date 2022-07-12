@@ -32,7 +32,7 @@ ruta_de_datos=$2
 repeticiones=$4
 
 #Header
-echo "#rowsxcols:time_ijk:time_kij"
+echo "#rowsxcols:time_ijk:time_kij:time_ijkSIMD:time_kijSIMD"
 
 #Loop
 ((count=repeticiones))
