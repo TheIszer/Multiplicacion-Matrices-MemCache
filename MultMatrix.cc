@@ -49,6 +49,7 @@ void MultMatrix::DOkij(const Matrix<float>& A, const Matrix<float>& B, Matrix<fl
 	}
 }
 
+//Metodo para imprimir un registro __m128
 void showRegister(std::string name, __m128 reg){
 	float* tmpOut = new float[4];
 	
@@ -64,7 +65,7 @@ void showRegister(std::string name, __m128 reg){
 	delete[] tmpOut;
 }
 
-//Método ijk de multiplicacion de matrices
+//Método ijk vectorial de multiplicacion de matrices
 void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C)
 {
 	//Variables i k j, siendo las matrices de tamaño ik & kj
@@ -123,7 +124,7 @@ void MultMatrix::DOijkSIMD(const Matrix<float>& A, const Matrix<float>& B, Matri
 
 }
 
-//Método kij de multiplicacion de matrices
+//Método kij vectirial de multiplicacion de matrices
 void MultMatrix::DOkijSIMD(const Matrix<float>& A, const Matrix<float>& B, Matrix<float>& C)
 {
 	for(size_t k=0; k < A.cols(); k++){
